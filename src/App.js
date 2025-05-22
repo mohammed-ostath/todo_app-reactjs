@@ -1,24 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import TodoList from "./components/TodoList";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { TodosContext } from "./contexts/todosContext";
+import { v4 as uuidv4 } from "uuid";
+import { useState } from "react";
+import MySnackBar from "./components/MySnackBar";
+import { ToastProvider } from "./contexts/ToastContext";
+const theme = createTheme({
+  typography: {
+    fontFamily: ["Tajawal"],
+  },
+  palette: {
+    primary: {
+      main: "#dd2c00",
+    },
+  },
+});
+const initialTodos = [
+  {
+    id: uuidv4(),
+    title: "المهمة الاولى",
+    details: "التفاصيل الخاصة بالمهمة الاولى",
+    isCompleted: false,
+  },
+  {
+    id: uuidv4(),
+    title: "المهمة الاولى",
+    details: "التفاصيل الخاصة بالمهمة الاولى",
+    isCompleted: false,
+  },
+  {
+    id: uuidv4(),
+    title: "المهمة الاولى",
+    details: "التفاصيل الخاصة بالمهمة الاولى",
+    isCompleted: false,
+  },
+];
 function App() {
+  const [todos, setTodos] = useState(initialTodos);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeProvider theme={theme}>
+      <ToastProvider>
+        <div
+          className="App"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            background: "#191b1f",
+            direction: "rtl",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <TodosContext.Provider value={{ todos, setTodos }}>
+            <TodoList />
+          </TodosContext.Provider>
+        </div>
+      </ToastProvider>
+    </ThemeProvider>
   );
 }
 

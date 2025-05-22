@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+.iconButton {
+  transition: all 0.5s !important;
+  -webkit-transition: all 0.5s !important;
+  -moz-transition: all 0.5s !important;
+  -ms-transition: all 0.5s !important;
+  -o-transition: all 0.5s !important;
+}
+.iconButton:hover {
+  background-color: #cedcf9 !important;
+  box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.4);
+}
+
+.todoCard {
+  transition: all 0.5s !important;
+  -webkit-transition: all 0.5s !important;
+  -moz-transition: all 0.5s !important;
+  -ms-transition: all 0.5s !important;
+  -o-transition: all 0.5s !important;
+}
+
+.todoCard:hover{
+  padding-bottom: 20px;
+  box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding-top: 20px;
+}
+
+/* custom font */
+@font-face {
+  font-family: 'Tajawal';
+  src: url("../public/fonts/Tajawal-Regular.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* custom font */
